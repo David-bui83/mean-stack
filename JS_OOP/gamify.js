@@ -1,10 +1,11 @@
+
 var  pooh = {character: 'Winnie the Pooh', greet: function(){console.log("Oh bother")}};
 var  tigger = {character: 'Tigger', greet: function(){console.log("The wonderful thing about Tiggers is Tiggers are wonderful things!")}}
 var  piglet = {character: 'Piglet', greet: function(){console.log("Oh d-d-d-d-dear! I wasn't expecting company!")}}
-var  bees = {character: 'Bees', greet: function(){console.log("The wonderful thing about Tiggers is Tiggers are wonderful things!")}}
+var  bees = {character: 'Bees', greet: function(){console.log("bzz bzzzzz bzzz bzzz")}}
 var  owl = {character: 'Owl'}
 var  christopher = {character: 'Christopher Robin', greet: function(){console.log("Silly old bear, I won't ever forget about you")}}
-var  rabbit = {charater: 'Rabbit', greet: function(){console.log("You stay away from my hunny pooh!")}}
+var  rabbit = {character: 'Rabbit', greet: function(){console.log("You stay away from my hunny pooh!")}}
 var  gopher = {character: 'Gopher', greet: function(){console.log("I like to dig holes and tunnels")}}
 var  kanga = {character: 'Kanga', greet: function(){console.log("Bouncing around all day.")}}
 var  eeyore = {character: 'Eeyore', greet: function(){console.log("A little consideration, a little thought for others, makes all the difference.")}}
@@ -65,7 +66,7 @@ eeyore.east = heffalumps
 heffalumps.west = eeyore
 heffalumps.west.south = kanga
 
-var player = {location: tigger};
+var player = {location: tigger, honey: false};
 function move(dir){
 
   console.log('direction: ' + dir)
@@ -108,17 +109,49 @@ function move(dir){
       player.location.greet()
     }
   }
-
 }
 
-var dir = 'north'
-move(dir)
-move(dir)
-move(dir)
-dir = 'south'
-move(dir)
+function pickup(){
+  console.log('pickup')
+  console.log(player.location.character)
+  if(player.location.character == 'Bees'){
+    player.honey = true;
+    console.log('pickup honey')
+    console.log(player.honey)
+  }
+}
 
-// dir = 'east'
-// move(dir)
-// move(dir)
-// move(dir)
+function mission(){
+  if(player.honey === false){
+    console.log('Winnie the Pooh is looking for honey! Can you help?')
+  }
+  characters = [pooh,tigger,piglet,christopher,eeyore,rabbit,owl,gopher,kanga,heffalumps]
+  ran = Math.floor(Math.random()* 10)
+  var location = characters[ran]['character']
+  console.log('Location to drop honey is ' + location)
+  
+  return location
+}
+
+function drop(){
+  console.log(mission())
+  console.log(player.location.character)
+  if(mission() === player.location.character){
+    if(!player.honey){
+      console.log("Whoops! No honey to drop!")
+    }else{
+      console.log("Congratulations! You delivered the honey to Winnie the Pooh!.")
+      player.honey = false
+    }
+  }else{
+    console.log("Whoops! This isn't the place that needs the honey!")
+  }
+
+}
+console.log('**********************')
+mission()
+move('north')
+move('east')
+pickup()
+move('west')
+drop()

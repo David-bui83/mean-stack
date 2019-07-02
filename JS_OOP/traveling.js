@@ -1,14 +1,14 @@
-var  pooh = {charater: 'Winnie the Pooh'};
-var  tigger = {charater: 'Tigger'}
-var  piglet = {charater: 'Piglet'}
-var  bees = {charater: 'Bees'}
-var  owl = {charater: 'Owl'}
-var  christopher = {charater: 'Christopher Robin'}
-var  rabbit = {charater: 'Rabbit'}
-var  gopher = {charater: 'Gopher'}
-var  kanga = {charater: 'Kanga'}
-var  eeyore = {charater: 'Eeyore'}
-var  heffalumps = {charater: 'Heffalumps'}
+var  pooh = {character: 'Winnie the Pooh'};
+var  tigger = {character: 'Tigger'}
+var  piglet = {character: 'Piglet'}
+var  bees = {character: 'Bees'}
+var  owl = {character: 'Owl'}
+var  christopher = {character: 'Christopher Robin'}
+var  rabbit = {character: 'Rabbit'}
+var  gopher = {character: 'Gopher'}
+var  kanga = {character: 'Kanga'}
+var  eeyore = {character: 'Eeyore'}
+var  heffalumps = {character: 'Heffalumps'}
 
 tigger.north = pooh
 tigger.north.west = piglet
@@ -75,7 +75,7 @@ function move(dir){
     }
     else{
       player.location = player.location['north']
-      console.log('You are now at '+ player.location.charater +'\'s house')
+      console.log('You are now at '+ player.location.character +'\'s house')
     }
   }
 
@@ -85,7 +85,7 @@ function move(dir){
     }
     else{
       player.location = player.location['south']
-      console.log('You are now at '+ player.location.charater +'\'s house')
+      console.log('You are now at '+ player.location.character +'\'s house')
     }
   }
 
@@ -95,7 +95,7 @@ function move(dir){
     }
     else{
       player.location = player.location['east']
-      console.log('You are now at '+ player.location.charater +'\'s house')
+      console.log('You are now at '+ player.location.character +'\'s house')
     }
   }
 
@@ -105,7 +105,7 @@ function move(dir){
     }
     else{
       player.location = player.location['west']
-      console.log('You are now at '+ player.location.charater +'\'s house')
+      console.log('You are now at '+ player.location.character +'\'s house')
     }
   }
 
