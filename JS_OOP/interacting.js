@@ -69,46 +69,13 @@ var player = {location: tigger};
 function move(dir){
 
   console.log('direction: ' + dir)
-  if(dir === 'north'){
-    if(player.location['north'] === undefined){
-      console.log('You may not go that way')
-    }else{
-      player.location = player.location['north']
-      console.log('You are now at '+ player.location.character +'\'s house')
-      player.location.greet()
-    }
+  if(player.location[dir] === undefined){
+    console.log('You may not go that way')
+  }else{
+    player.location = player.location[dir]
+    console.log('You are now at ' + player.location.character + '\'s house.')
+    player.location.greet()
   }
-
-  if(dir === 'south'){
-    if(player.location['south'] === undefined){
-      console.log('You may not go that way')
-    }else{
-      player.location = player.location['south']
-      console.log('You are now at '+ player.location.character +'\'s house')
-      player.location.greet()
-    }
-  }
-
-  if(dir === 'east'){
-    if(player.location['east'] === undefined){
-      console.log('You may not go that way')
-    }else{
-      player.location = player.location['east']
-      console.log('You are now at '+ player.location.character +'\'s house')
-      player.location.greet()
-    }
-  }
-
-  if(dir === 'west'){
-    if(player.location['west'] === undefined){
-      console.log('You may not go that way')
-    }else{
-      player.location = player.location['west']
-      console.log('You are now at '+ player.location.character +'\'s house')
-      player.location.greet()
-    }
-  }
-
 }
 
 var dir = 'north'

@@ -66,48 +66,15 @@ eeyore.east = heffalumps
 heffalumps.west = eeyore
 heffalumps.west.south = kanga
 
-var player = {location: tigger, honey: false};
+var player = {location: tigger, honey: false, drop: ''};
 function move(dir){
-
   console.log('direction: ' + dir)
-  if(dir === 'north'){
-    if(player.location['north'] === undefined){
-      console.log('You may not go that way')
-    }else{
-      player.location = player.location['north']
-      console.log('You are now at '+ player.location.character +'\'s house')
-      player.location.greet()
-    }
-  }
-
-  if(dir === 'south'){
-    if(player.location['south'] === undefined){
-      console.log('You may not go that way')
-    }else{
-      player.location = player.location['south']
-      console.log('You are now at '+ player.location.character +'\'s house')
-      player.location.greet()
-    }
-  }
-
-  if(dir === 'east'){
-    if(player.location['east'] === undefined){
-      console.log('You may not go that way')
-    }else{
-      player.location = player.location['east']
-      console.log('You are now at '+ player.location.character +'\'s house')
-      player.location.greet()
-    }
-  }
-
-  if(dir === 'west'){
-    if(player.location['west'] === undefined){
-      console.log('You may not go that way')
-    }else{
-      player.location = player.location['west']
-      console.log('You are now at '+ player.location.character +'\'s house')
-      player.location.greet()
-    }
+  if(player.location[dir] === undefined){
+    console.log('You may not go that way')
+  }else{
+    player.location = player.location[dir]
+    console.log('You are now at ' + player.location.character + '\'s house.')
+    player.location.greet()
   }
 }
 
@@ -124,19 +91,19 @@ function pickup(){
 function mission(){
   if(player.honey === false){
     console.log('Winnie the Pooh is looking for honey! Can you help?')
+    characters = [pooh,tigger,piglet,christopher,eeyore,rabbit,owl,gopher,kanga,heffalumps]
+    ran = Math.floor(Math.random()* 10)
+    var location = characters[ran]['character']
+    // var location = 'Piglet'
+    console.log('Location to drop honey is ' + location)
+    player.drop = location
   }
-  characters = [pooh,tigger,piglet,christopher,eeyore,rabbit,owl,gopher,kanga,heffalumps]
-  ran = Math.floor(Math.random()* 10)
-  var location = characters[ran]['character']
-  console.log('Location to drop honey is ' + location)
-  
-  return location
 }
 
 function drop(){
-  console.log(mission())
-  console.log(player.location.character)
-  if(mission() === player.location.character){
+  // console.log(player.location.character)
+  // console.log(player.drop)
+  if(player.drop === player.location.character){
     if(!player.honey){
       console.log("Whoops! No honey to drop!")
     }else{
@@ -153,5 +120,6 @@ mission()
 move('north')
 move('east')
 pickup()
+move('west')
 move('west')
 drop()
