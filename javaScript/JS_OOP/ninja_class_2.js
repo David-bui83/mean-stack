@@ -13,12 +13,18 @@ function Ninja(name, health=100){
     health += 10;
   }
   this.punch = function(ninja){
-    this.health -= 5;
-    console.log(`${this.name} was punched by ${ninja.name} and lost 5 health!`)
+    if(ninja instanceof Object){
+      this.health -= 5;
+      console.log(`${this.name} was punched by ${ninja.name} and lost 5 health!`)
+    }else{
+      console.log('Not an instance of ninja')
+    }
   }
   this.kick = function(ninja){
-    this.health -= (15 *ninja.strength);
-    console.log(`${this.name} was kicked by ${ninja.name} and lost ${this.health} health!`)
+    if(ninja instanceof Object){
+      this.health -= (15 *ninja.strength);
+      console.log(`${this.name} was kicked by ${ninja.name} and lost ${this.health} health!`)
+    }
   }
 }
 
