@@ -17,11 +17,11 @@ class Ninja {
 }
 
 class Sensei extends Ninja {
-  constructor(name, health=200, speed, strength){
-    super(name, health, speed, strength);
+  constructor(name, health=200, speed=10, strength=10){
+    super(name, health);
     this.health = health;
-    this.speed = 10;
-    this.strength = 10;
+    this.speed = speed;
+    this.strength = strength;
     this.wisdom = 10;
   }
   speakWisdom(){
