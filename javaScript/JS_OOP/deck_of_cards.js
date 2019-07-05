@@ -7,7 +7,6 @@ class Card{
   show(){
     return `${this.strValue} of ${this.suit}`;
   }
-
 }
 class Deck{
   constructor(){
