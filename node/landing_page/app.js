@@ -27,4 +27,4 @@ var server = http.createServer(function(req,res){
 })
 
 server.listen(6789);
-console.log('Running in locahost at port 6789');
+console.log('Running on localhost at port 6789');

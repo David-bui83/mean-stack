@@ -1,0 +1,16 @@
+{
+  "name": "views",
+  "version": "1.0.0",
+  "description": "views",
+  "main": "8000",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "author": "david",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1"
+  }
+}
