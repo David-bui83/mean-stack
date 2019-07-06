@@ -1,0 +1,16 @@
+{
+  "name": "express_cars_and_cats",
+  "version": "1.0.0",
+  "description": "cars and cats",
+  "main": "8000",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "author": "david bui",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1"
+  }
+}
