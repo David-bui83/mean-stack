@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <script src="js/script.js"></script>
+  <title>Cats Data | Details</title>
+</head>
+<body>
+  <h1>Details</h1>
+  <div class='frame'>
+    <h2><%= cat['name']%></h2>
+    <img src="../images/<%= cat['picture'] %>" alt="cat">
+    <p>Favorite food: <%= cat['food']%></p>
+    <p>Favorite food: <%= cat['age']%></p>
+    <p>Spleeping spots:</p>
+    <ul>
+      <%for (x in cat['spots']) {%>
+      <li><%= cat['spots'][x] %></li>
+      
+      <%}%>
+    </ul>
+  </div>
+</body>
+</html>
