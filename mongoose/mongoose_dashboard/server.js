@@ -33,7 +33,7 @@ app.set('view engine', 'ejs');
 app.get('/',(req,res)=>{
   Animals.find({},(err,animals)=>{
     if(err){
-      console.log('the err is: , err');
+      console.log('Error from index: ' , err);
       res.render('index');
     }else{
       console.log(animals)
@@ -50,7 +50,7 @@ app.get('/mongooses/:id',(req,res)=>{
   console.log("Animal id from view: ", req.params.id);
   Animals.findOne({_id:req.params.id},(err,animals)=>{
     if(err){
-      console.log('Error: ', err);
+      console.log('Error from view: ', err);
       res.render('view');
     }else{
       console.log('Successfully retrieved one animal');
@@ -85,7 +85,7 @@ app.get('/mongooses/edit/:id',(req,res)=>{
   console.log('animal id: ',req.params.id);
   Animals.findOne({_id:req.params.id},(err, animals)=>{
     if(err){
-      console.log('Error: ', err);
+      console.log('Error from edit ', err);
       res.render('edit');
     }else{
       console.log("From findOne: ",animals);
@@ -114,7 +114,6 @@ app.post('/mongooses/:id',(req,res)=>{
           console.log("From findOne: ",animals)
           res.redirect(`/mongooses/${req.params.id}`);
         }
-
       });
     }
   });
@@ -130,7 +129,6 @@ app.post('/mongooses/destroy/:id',(req,res)=>{
       res.redirect('/');
     }
   })
-  
 });
 
 app.listen(PORT,()=>{console.log(`Listening on port ${PORT}`);});
