@@ -12,7 +12,7 @@ const PORT = 9000;
 mongoose.connect('mongodb://localhost/quoting_dojo');
 const UserSchema = new mongoose.Schema({
   name: {type: String, required: [true,'Need to enter a name'], minlength: 2},
-  quote: {type: String, required: true, minlength: 10},
+  quote: {type: String, required: [true,'Quote is required'], minlength: 10},
   date: {type: Date, default: Date.now()}
 });
 mongoose.model('User',UserSchema);

@@ -20,7 +20,7 @@
       <hr class="my-4">
       <% if(messages.registration) { %>
           <% for (var x of messages.registration) { %>
-            <h3><%= x %></h3>
+            <h3 class="text-danger"><%= x %></h3>
           <% } %>
       <% } %>
       <form action="/quotes" method="POST">

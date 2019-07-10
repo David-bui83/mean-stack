@@ -16,6 +16,35 @@
 <body>
   <div class="container">
     <h1 class="display-4">Mongoose Dashboard</h1>
+    <hr class="my-4">
+    <a class="btn btn-dark btn-lg float-right bg-dark mb-5" href="/mongooses/new">Add an Animal</a>
+    <table class="table mt-5">
+      <thead class="thead-dark">
+        <tr>
+          <th>id</th>
+          <th>Animal</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Utilities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%for(let a in animals){%>
+          <tr>
+            <td><%=animals[a].id%></td>
+            <td><%=animals[a].type%></td>
+            <td><%=animals[a].name%></td>
+            <td><%=animals[a].age%></td>
+            <td>
+              <a class="btn btn-outline-light btn-link" role="button" href="/mongooses/<%=animals[a].id%>">View</a> | <a class="btn btn-outline-light btn-link" role="button" href="/mongooses/edit/<%=animals[a].id%>">Edit</a> |
+              <form style="display: inline;" action="/mongooses/destroy/<%=animals[a].id%>" method="POST">
+                <button class="btn-link btn-outline-light" type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <%}%>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>
