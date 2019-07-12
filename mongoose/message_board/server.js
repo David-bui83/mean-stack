@@ -49,24 +49,32 @@ app.get('/',(req,res)=>{
 });
 
 app.post('/messages/new',(req,res)=>{
-  console.log(req.body);
+  // console.log(req.body);
   Messages.create(req.body,(err,data)=>{
     if(err){
+      for(let key in err.errors){
+        req.flash('validation', err.errors[key].message);
+      }
       console.log('Error from message: ', err);
+      res.redirect('/');
     }else{
       console.log(data);
+      res.redirect('/');
     }
   });
-  res.redirect('/');
+  
 });
 
 app.post('/comments/new/:id',(req,res)=>{
-  console.log(req.body);
+  // console.log(req.body);
   Comments.create(req.body,(err,data)=>{
     if(err){
       console.log('Error from comment: ', err);
+      for(let key in err.errors){
+        req.flash('commentValidation', err.errors[key].message);
+      }
     }else{
-      console.log(data);
+      // console.log(data);
       Messages.findOneAndUpdate({_id:req.params.id},{$push:{comments:data}},(err,data)=>{
         if(err){
           console.log('Error from saving comment: ', err);
@@ -75,7 +83,6 @@ app.post('/comments/new/:id',(req,res)=>{
           data.save()
         }
       })
-      Messages
     }
   })
   res.redirect('/');

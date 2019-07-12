@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="../static/css/style.css">
+  <script type="text/javascript" src="../static/js/script.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <title>Quoting Dojo | Index</title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron mt-5">
+      <h1>Welcome to Quoting Dojo - Modularizing Routes</h1>
+      <hr class="my-4">
+      <% if(messages.registration) { %>
+          <% for (var x of messages.registration) { %>
+            <h3 class="text-danger"><%= x %></h3>
+          <% } %>
+      <% } %>
+      <form action="/quotes" method="POST">
+        <div class="form-group row">
+          <label for="name" class="col-sm-2 col-form-label">Your Name:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="quote" class="col-sm-2 col-form-label">Your Quote:</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="quote" name="quote" placeholder="Enter quote"></textarea>
+          </div>
+        </div>
+        <button class="btn btn-success btn-lg">Add my quote!</button>
+        <a class="btn btn-success btn-lg" href="/quotes">Skip to quotes!</a>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

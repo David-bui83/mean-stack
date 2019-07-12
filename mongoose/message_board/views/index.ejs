@@ -18,6 +18,11 @@
     <a href="#" class="navbar-brand"><h1 class="display-4">The Dojo Message Board</h1></a>
   </nav>
   <div class="container text-white">
+    <% if(messages.validation) { %>
+      <% for (var m of messages.validation) { %>
+        <h3 class="text-danger"><%= x %></h3>
+      <% } %>
+    <% } %>
     <div class="jumbotron mt-5 bg-dark">
       <form action="/messages/new" method="POST">
           <div class="form-group">
@@ -44,6 +49,11 @@
           <%}%> 
         </div>
         <div class="jumbotron mt-5 bg-dark text-white">
+            <% if(messages.commentValidation) { %>
+              <% for (var m of messages.commentValidation) { %>
+                <h3 class="text-danger"><%= x %></h3>
+              <% } %>
+            <% } %>
             <form action="/comments/new/<%=x.id%>" method="POST">
                 <div class="form-group">
                   <label for="name">Name:</label>
