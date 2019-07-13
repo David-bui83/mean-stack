@@ -7,8 +7,6 @@ const app = express();
 app.locals.moment = require('moment');
 const PORT = process.env.PORT || 7000;
 
-
-
 app.use(session({
   secret: 'theverysecretkey',
   resave: false,
