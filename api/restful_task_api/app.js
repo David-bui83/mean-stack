@@ -14,11 +14,10 @@ app.use(session({
   saveUninitialized:true,
   cookie:{maxAge:6000}
 }));
-app.use(bodyParser.urlencoded({extended:true}));
+// app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,'./static')));
-app.use(express.static(__dirname + '/public/dist/public'));
-// app.use(express.static(path.joing(__dirname,'./public/dist/public')));
+app.use(express.static( __dirname + '/public/dist/public' ));
 app.use(flash());
 
 app.set('views',path.join(__dirname,'/views'));

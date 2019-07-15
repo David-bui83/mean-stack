@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Tasks = mongoose.model('Tasks');
+mongoose.Promise = global.Promise;
 
 module.exports = {
   index:(req,res)=>{
