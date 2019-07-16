@@ -5,9 +5,11 @@
   </h1>
   
   <h2>All the Tasks: </h2>
-  <p *ngFor="let task of tasks">{{task['title']}} - {{task['desc']}}</p>
-  <br>
-  <h2>The third task:</h2>
-  <p>{{tasks[2]['title']}} - {{tasks[2]['desc']}}</p>
+  <div class="div" *ngIf="tasks">
+    <p *ngFor="let task of tasks">{{task['title']}} - {{task['desc']}}</p>
+    <br>
+    <h2>The third task:</h2>
+    <p>{{tasks[2].title}} - {{tasks[2]['desc']}}</p>
+  </div>
 </div>
 <router-outlet></router-outlet>
