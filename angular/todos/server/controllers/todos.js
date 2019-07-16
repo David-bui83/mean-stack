@@ -32,11 +32,11 @@ module.exports = {
     });
   },
   updateOne:(req,res)=>{
-    Todos.updateOne({id:req.params.id},{$set:{desc:req.body.desc}},(err,todo)=>{
+    Todos.updateOne({_id:req.params.id},{$set:{title:req.body.title,desc:req.body.desc,completed:req.body.completed}},(err,todo)=>{
       if(err){
-        req.json({message:'Error',data:err});
+        res.json({message:'Error',data:err});
       }else{
-        req.json({message:'Success',data:todo});
+        res.json({message:'Success',data:todo});
       }
     });
   },

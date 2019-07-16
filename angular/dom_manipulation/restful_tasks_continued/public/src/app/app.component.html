@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Restful {{ title }} API
+  </h1>
+  
+  <h2>All the Tasks: </h2>
+  <p *ngFor="let task of tasks">{{task['title']}} - {{task['desc']}}</p>
+  <br>
+  <h2>The third task:</h2>
+  <p>{{tasks[2]['title']}} - {{tasks[2]['desc']}}</p>
+</div>
+<router-outlet></router-outlet>
