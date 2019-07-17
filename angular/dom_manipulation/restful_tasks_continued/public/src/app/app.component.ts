@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, Input } from '@angular/core';
 import { HttpService } from './http.service';
 
 @Component({
@@ -19,7 +19,6 @@ export class AppComponent implements OnInit{
     this.editTask = {title:'',desc:''};
   };
   getTaskFromService(id){
-    console.log(id);
     this._httpService.getTask(id).subscribe(data=>{this.task = data['data']});
   };
   buttonGetAllTasks(){
@@ -47,4 +46,5 @@ export class AppComponent implements OnInit{
     this._httpService.deleteTask(id).subscribe(data=>{this.tasks = data['data']});
     this.buttonGetAllTasks();
   }
+  
 }

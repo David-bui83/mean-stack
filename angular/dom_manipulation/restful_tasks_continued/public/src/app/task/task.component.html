@@ -1,0 +1,5 @@
+<div  *ngIf="taskToShow">
+  <h6>{{taskToShow.title}}</h6>
+  <p>{{taskToShow.desc}}</p>
+  <button (click)="cancel()">Cancel</button>
+</div>

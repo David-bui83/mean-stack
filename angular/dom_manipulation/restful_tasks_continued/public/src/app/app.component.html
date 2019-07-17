@@ -22,7 +22,7 @@
         <tbody>
           <tr *ngFor="let task of tasks">
             <td>{{task['title']}} </td> 
-            <td><button (click)="getTaskFromService(task._id)">View</button> | <button (click)="buttonEditTask(task._id)">Edit</button>  | <button (click)="buttonDeleteTask(task._id)">Delete</button></td>
+            <td><button (click)="getTaskFromService(task._id)">Show</button> | <button (click)="buttonEditTask(task._id)">Edit</button>  | <button (click)="buttonDeleteTask(task._id)">Delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -31,9 +31,7 @@
       <div class="jumbotron mt-5">
         <div class="row">
           <div class="col-6">
-            <h2>{{task?.title}}</h2>
-            <hr class="my-4">
-            <p>{{task?.desc}}</p>
+            <app-task *ngIf="task" [taskToShow]="task"></app-task>
         </div>
           <div class="col-6">
               <form (submit)="buttonUpdateTask(editTask._id)">
@@ -45,6 +43,7 @@
         </div>
         
       </div>
+      
     </div>
 
   </div>

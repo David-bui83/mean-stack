@@ -12,7 +12,7 @@ module.exports = {
     });
   },
   getOne:(req,res)=>{
-    Tasks.findOne({_id:req.params.id},(err,task)=>{
+    Tasks.findById({_id:req.params.id},(err,task)=>{
       if(err){
         res.json({message:'Error',data:task});
       }else{
@@ -40,7 +40,7 @@ module.exports = {
     })
   },
   destroy:(req,res)=>{
-    Tasks.remove({_id:req.params.id},(err,task)=>{
+    Tasks.findByIdAndDelete({_id:req.params.id},(err,task)=>{
       if(err){
         res.json({message:'Error',data:task});
       }else{
