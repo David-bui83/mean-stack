@@ -31,7 +31,7 @@ module.exports = {
     });
   },
   updateOne:(req,res)=>{
-    Tasks.UpdateOne({_id:req.params.id},{$set:{title:req.body.title,desc:req.body.desc,completed:req.body.completed}},(err,task)=>{
+    Tasks.findByIdAndUpdate({_id:req.params.id},{$set:{title:req.body.title,desc:req.body.desc,completed:req.body.completed}},(err,task)=>{
       if(err){
         res.json({message:'Error',data:task});
       }else{

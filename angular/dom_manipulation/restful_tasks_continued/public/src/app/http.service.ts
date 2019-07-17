@@ -9,8 +9,17 @@ export class HttpService{
   }
   getTasks(){
     return this._http.get('/tasks');
-  }
+  };
   getTask(id){
     return this._http.get(`/tasks/${id}`);
-  }
+  };
+  createTask(newtask){
+    return this._http.post('/tasks',newtask);
+  };
+  updateTask(id,task){
+    return this._http.put(`/tasks/${id}`,task);
+  };
+  deleteTask(id){
+    return this._http.delete(`/tasks/${id}`);
+  };
 }
