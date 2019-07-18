@@ -1,0 +1,19 @@
+<div *ngIf='ratingToShow'>
+  <h2>Baked by {{ratingToShow.baker}}</h2>
+  <div class="row">
+    <div class="col">
+      <img style="width: 400px;" src="{{ratingToShow.cake}}" alt="cake image">
+    </div>
+    <div class="col">
+      
+      <h3>Average rating: {{findAvg()}} stars</h3>
+      
+      <ul *ngFor="let rate of ratingToShow.rating">
+        <li>
+          <h3>{{rate.comment}}</h3>
+          <h3>{{rate.rating}} stars</h3>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

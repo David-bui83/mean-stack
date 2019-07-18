@@ -34,11 +34,13 @@
             <app-task *ngIf="task" [taskToShow]="task"></app-task>
         </div>
           <div class="col-6">
+            <div class="mt-5" style="height: 500px;">
               <form (submit)="buttonUpdateTask(editTask._id)">
                   <input type="text" name="editTask.title" [(ngModel)]="editTask.title" />
                   <input type="text" name="editTask.desc" [(ngModel)]="editTask.desc" />
                   <input type="submit" value="Edit Task" />
               </form>
+            </div>
           </div>
         </div>
         
