@@ -9,13 +9,13 @@ import { WashingtonComponent } from './washington/washington.component';
 
 
 const routes: Routes = [
-  {path: 'http://localhost:8000/', redirectTo: 'https://www.codingdojo.com/orange-county'},
   {path: 'seattle', component: SeattleComponent},
   {path: 'san-jose', component: SanJoseComponent},
   {path: 'burbank', component: BurbankComponent},
   {path: 'dallas', component: DallasComponent},
   {path: 'washington', component: WashingtonComponent},
   {path: 'chicago', component: ChicagoComponent},
+  {path: 'http://localhost:8000/', pathMatch: 'full', redirectTo: 'https://www.codingdojo.com/orange-county'}
 ];
 
 @NgModule({
