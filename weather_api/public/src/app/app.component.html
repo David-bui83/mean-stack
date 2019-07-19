@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <div>
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/seattle']">Seattle</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/san-jose']">San Jose</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/burbank']">Burbank</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/dallas']">Dallas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/washington']">Washington</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/chicago']">Chicago</a>
+      </li>
+    </ul>
+  </div>
+
+<router-outlet></router-outlet>
