@@ -1,0 +1,49 @@
+const mongoose = require('mongoose');
+const Authors = mongoose.model('Authors');
+
+module.exports = {
+  getAll:(req,res)=>{
+    Authors.find({},(err,data)=>{
+      if(err){
+        res.json({message:'Error',data:err});
+      }else{
+        res.json({message:'Success',data:data});
+      }
+    });
+  },
+  getOne:(req,res)=>{
+    Authors.findById({_id:req.params.id},(err,author)=>{
+      if(err){
+        res.json({message:'Error',data:err});
+      }else{
+        res.json({message:'Success',data:author});
+      }
+    })
+  },
+  createOne:(req,res)=>{
+    Authors.create(req.body,(err,author)=>{
+      if(err){
+        res.json({message:'Error',data:err});
+      }else{
+        res.json({message:'Success',data:author});
+      }
+    });
+  },
+  updateOne:(req,res)=>{  
+    Authors.findByIdAndUpdate({_id:req.params.id},req.body,(err,author)=>{
+      if(err){
+        res.json({message:'Error',data:err});
+      }else{
+        res.json({message:'Success',data:author});
+      }
+    });
+  },
+  destroy:(req,res)=>{
+    Authors.findByIdAndRemove({_id:req.params.id},(err,author)=>{
+      if(err){
+        res.json({message:'Error',data:err});
+      }
+      res.json({message:'Success',data:author});
+    });
+  }
+}
