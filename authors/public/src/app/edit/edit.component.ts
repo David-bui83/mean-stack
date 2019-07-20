@@ -11,13 +11,14 @@ import { HttpService } from '../http.service';
 export class EditComponent implements OnInit {
   author_id:any;
   author:any;
+  errors:any;
   constructor(private _route: ActivatedRoute,
     private _router: Router, private _httpService: HttpService) { }
 
   ngOnInit() {
     this._route.params.subscribe((params: Params) => {
       this.author_id = params['id'];
-      console.log(this.author_id);
+      // console.log(this.author_id);
     });
     this.getOneAuthor();
   }
@@ -27,11 +28,16 @@ export class EditComponent implements OnInit {
     })
   }
   updateOneAuthor(id){
-    console.log("id from udpate: ",id)
-    console.log('this.author form udpate: ',this.author);
+    // console.log("id from udpate: ",id)
+    // console.log('this.author form udpate: ',this.author);
     this._httpService.updateOne(id,this.author).subscribe(data=>{
-      console.log("data from update: ",data);
-      this._router.navigate(['']);
+      console.log('from update error: ',data);
+      if(data['message']=='Error'){
+        this.errors = data["data"]["errors"]
+      }else{
+        // console.log("data from update: ",data);
+        this._router.navigate(['']);
+      }
     })
   };
 }

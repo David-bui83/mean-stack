@@ -2,7 +2,7 @@
     <a href="#" [routerLink]="['']">Home</a>
     <h3>Edit author:</h3>
     <div class="jumbotron">
-        <form (click)="updateOneAuthor(author._id)">
+        <form (submit)="updateOneAuthor(author._id)">
           <!-- <p> {{ author | json }} </p> -->
           <div class="form-group">
             <label for="first_name">First Name:</label>
@@ -12,7 +12,8 @@
             <label for="last_name">Last Name:</label>
             <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last name" [(ngModel)]="author['last_name']">
           </div>
-            
+          <h3 class="text-danger">{{errors?.first_name?.message}}</h3>
+          <h3 class="text-danger">{{errors?.last_name?.message}}</h3>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

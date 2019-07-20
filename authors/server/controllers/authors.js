@@ -30,7 +30,7 @@ module.exports = {
     });
   },
   updateOne:(req,res)=>{  
-    Authors.findByIdAndUpdate({_id:req.params.id},req.body,(err,author)=>{
+    Authors.findByIdAndUpdate({_id:req.params.id},req.body,{runValidators:true},(err,author)=>{
       if(err){
         res.json({message:'Error',data:err});
       }else{
