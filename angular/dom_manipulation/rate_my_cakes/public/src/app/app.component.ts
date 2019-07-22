@@ -13,11 +13,11 @@ export class AppComponent implements OnInit{
   constructor(private _httpService: HttpService){}
   cakes = [];
   newCake:any;
-  newComment:any;
+  // newComment:any;
   cake:any;
   ngOnInit(){
     this.newCake = { baker:"",cake:"" };
-    this.newComment = { rating:"",comment:""};
+    // this.newComment = { rating:"",comment:""};
     this.getAllCakes();
   }
 
@@ -42,8 +42,9 @@ export class AppComponent implements OnInit{
     this.getAllCakes();
   };
   
-  buttonAddComment(id){
-    this._httpService.addComment(id,this.newComment).subscribe(data=>{
+  buttonAddComment(id,newComment){
+    // this.newComment = scake;
+    this._httpService.addComment(id,newComment).subscribe(data=>{
       console.log(data);
       // this.ngOnInit();
     })

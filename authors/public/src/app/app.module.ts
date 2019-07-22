@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { AuthorsComponent } from './authors/authors.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
+import { QuotesComponent } from './quotes/quotes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthorsComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    QuotesComponent
   ],
   imports: [
     BrowserModule,
