@@ -1,0 +1,24 @@
+<div class="jumbotron">
+  <a class="btn btn-dark text-white float-right" [routerLink]="['new']" (click)="showNew()">Add a new movie</a>
+  <h2>Movie List</h2>
+  <table class="table table-dark mt-5">
+    <thead>
+      <tr>
+        <th>Movie title</th>
+        <th>Rating</th>
+        <th>Available Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies">
+        <td>{{movie?.title}}</td>
+        <td>{{findAvg(movie?.reviews)}}</td>
+        <td>
+          <a [routerLink]="['/view', movie._id]">Read reviews</a> | <a [routerLink]="['/edit', movie._id]">Write review</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-new  (myEvent)='triggerEvent()' (hide)="showNew()" *ngIf="isDisabled"></app-new>
